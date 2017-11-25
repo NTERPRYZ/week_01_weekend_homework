@@ -31,3 +31,32 @@ def pets_by_breed(pet_shop, chosen_breed)
   end
   return found_pets
 end
+
+def find_pet_by_name(pet_shop, pet_by_name)
+  pets = []
+  for pet in pet_shop[:pets]
+    if pet_by_name == pet[:name]
+      return pet
+    end
+  end
+  return nil
+end
+
+def remove_pet_by_name(pet_shop, name)
+  array_of_pets = pet_shop[:pets]
+  pet_to_delete = find_pet_by_name(pet_shop, name)
+  array_of_pets.delete(pet_to_delete)
+end
+
+def add_pet_to_stock(pet_shop, new_pet)
+  array_of_pets = pet_shop[:pets]
+  return array_of_pets.push(new_pet)
+end
+
+def customer_pet_count (customer_index)
+  return customer_index[:pets].count
+end
+
+def add_pet_to_customer(customer_hash, pet_hash)
+  return customer_hash[:pets].push(pet_hash)
+end
